@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/engali/static/css/main.5092be3c.css",
+    "main.js": "/engali/static/js/main.9e456aef.js",
+    "index.html": "/engali/index.html",
+    "main.5092be3c.css.map": "/engali/static/css/main.5092be3c.css.map",
+    "main.9e456aef.js.map": "/engali/static/js/main.9e456aef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5092be3c.css",
+    "static/js/main.9e456aef.js"
+  ]
+}
