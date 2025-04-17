@@ -89,7 +89,7 @@ body {
 }
 .chat-body .message {
   display: flex;
-  gap: 11px;
+  gap: 12px;
   align-items: center;
 }
 .chat-body .message svg {
