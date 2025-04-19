@@ -10,13 +10,13 @@ const ChatWrapper = () => {
       <div className="chatbot-popup">
         <div className="chat-header">
           <div className="headerInfo">
-            <ChatPotIcon />
+            <ChatPotIcon classA={"SVG"} />
           </div>
           <button className="material-symbols-rounded">keyboard_arrow_down</button>
         </div>
         <div className="chat-body">
           <div className="message bot-message">
-            <ChatPotIcon />
+            <ChatPotIcon classA={"svg"} />
             <p className="message-text">hello</p>
           </div>
           {chatHistory.map((chat, index) => (

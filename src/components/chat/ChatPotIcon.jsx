@@ -1,9 +1,9 @@
 import React from "react";
 
-const ChatPotIcon = () => {
+const ChatPotIcon = ({classA}) => {
   return (
     <svg
-    className="SVG"
+    className={classA}
       xmlns="http://www.w3.org/2000/svg"
       width="50"
       height="50"
