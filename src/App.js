@@ -5,7 +5,6 @@ import Clients from "./components/Clients/Clients";
 import Footer from "./components/Footer/Footer";
 import Projects from "./components/Projects/Projects";
 import Services from "./components/Service/Services";
-import ChatPotIcon from "./components/chat/ChatPotIcon";
 import ChatWrapper from "./components/chat/ChatWrapper";
 function App() {
   return (

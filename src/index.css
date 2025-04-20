@@ -113,14 +113,15 @@ body {
 }
 .chat-body .bot-message .message-text {
   background: #f6f2ff;
-  border-radius: 13px 13px 13px 3px;
-}
-.chat-body .bot-message .message-text {
-  background: #6d4fc2;
-  color: #fff;
+  color: #000;
   border-radius: 13px 13px 13px 3px;
 }
 .chat-body .user-message .message-text {
+  background: #6d4fc2;
+  color: #fff;
+  border-radius: 13px 13px 3px 13px;
+} 
+.chat-body .user-message  {
   flex-direction: column;
   align-items: flex-end;
 }

@@ -7,7 +7,7 @@ const ChatMessage = ({ index, chat }) => {
       className={`message ${chat.role === "model" ? "bot" : "user"}-message`}
     >
       {chat.role === "model" && <ChatPotIcon classA={"svg"} />}
-      <p className="message-text">hello</p>
+      <p className="message-text">{chat.text}</p>
     </div>
   );
 };
