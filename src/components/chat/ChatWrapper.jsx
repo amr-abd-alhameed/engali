@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import ChatPotIcon from "./ChatPotIcon";
 import ChatForm from "./ChatForm";
 import ChatMessage from "./ChatMessage";
+import logo from "../../assets/gemini.png";
 
 const ChatWrapper = () => {
   const [chatHistory, setChatHistory] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const bodyRef = useRef();
 
   const toggleChat = () => {
@@ -117,21 +118,30 @@ const ChatWrapper = () => {
     }
   }, [chatHistory]);  
 
+  
+
   return (
-    <div className={`parent ${isOpen ? 'show' : ''}`}>
+    <>
+  
+  <div class="image-container"  onClick={toggleChat}>  
+    <img src={logo} alt="gemini icon" className="img-logo" />  
+    <div class="hover-text">تحدث مع الذكاء الاصطناعي</div>  
+</div>  
+    
+    <div className={`parent ${isOpen ? 'show' : ''}`} dir="ltr">
   <div className={`container-chat`}>
     
     <div className={`chatbot-popup `}>
       <div className="chat-header">
         <div className="headerInfo">
-          <ChatPotIcon className={"SVG"} />
+          <ChatPotIcon classA={"SVG"} />
         </div>
-        <div className="toggle" onClick={toggleChat}>close AI</div>
+          {/* <div className="toggle" onClick={toggleChat}>close AI</div> */}
         <button className="material-symbols-rounded" onClick={toggleChat}>keyboard_arrow_down</button>
       </div>
       <div ref={bodyRef} className="chat-body">
         <div className="message bot-message">
-          <ChatPotIcon className={"svg"} />
+          <ChatPotIcon classA={"svg"} />
           <p className="message-text">hello</p>
         </div>
         {chatHistory.map((chat, index) => (
@@ -148,6 +158,8 @@ const ChatWrapper = () => {
     </div>
   </div>
     </div>
+    </>
+    
 
   
   );
