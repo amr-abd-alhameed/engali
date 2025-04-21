@@ -118,8 +118,8 @@ const ChatWrapper = () => {
   }, [chatHistory]);  
 
   return (
-    <div className="parert">
-  <div className={`container-chat ${isOpen ? 'show' : ''}`}>
+    <div className={`parent ${isOpen ? 'show' : ''}`}>
+  <div className={`container-chat`}>
     
     <div className={`chatbot-popup `}>
       <div className="chat-header">

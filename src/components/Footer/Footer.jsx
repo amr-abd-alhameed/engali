@@ -19,42 +19,45 @@ const Footer = () => {
     <Container id="footer">
       <Profile>
         <Slide direction="left" delay={1}>
-          <h1>Portfolio</h1>
+          <h1>تواصل معي</h1>
         </Slide>
         <div className="address">
           <Slide direction="left">
-            <h1>Address:</h1>
+            <h1 style={{ marginBottom: "1rem" }}>العنوان :</h1>
           </Slide>
           <Slide direction="left">
-            <p>1030 Southwood Dr San Luis Obispo, California(CA), 93401</p>
+            <p>كفر محفوظ - طامية - الفيوم</p>
           </Slide>
         </div>
         <div className="links">
           <Slide direction="left">
-            <h1>Contact me directly:</h1>
+            <h1>كلمني مباشرةٍ على</h1>
           </Slide>
-          <div>
+          <div
+            className="f"
+            style={{ marginBottom: "1rem", marginTop: "1rem" }}
+          >
             <span>
               <FiPhoneCall />
             </span>
             <Slide direction="left">
-              <a href="tel:+4733378901">+47 333 78 901</a>
+              <a href="tel:+01028474576">01028474576</a>
             </Slide>
           </div>
-          <div>
+          <div className="f" style={{ marginBottom: "1rem" }}>
             <Slide direction="left">
               <span>
                 <HiOutlineMailOpen />
               </span>
             </Slide>
             <Slide>
-              <a href="mailto:miladamiri@gmail.com">miladamiri@gmail.com</a>
+              <a href="mailto:miladamiri@gmail.com">engali_99@gmail.com</a>
             </Slide>
           </div>
         </div>
         <div className="profiles">
           <Slide direction="left">
-            <h1>Check my profiles</h1>
+            <h1>حساباتي على مواقع التواصل</h1>
           </Slide>
           <div className="icons">
             <Zoom>
@@ -73,7 +76,7 @@ const Footer = () => {
             </Zoom>
             <Zoom>
               <span>
-                <a href="/">
+                <a href="https://www.facebook.com/profile.php?id=100006463480002">
                   <BsFacebook />
                 </a>
               </span>
@@ -100,21 +103,25 @@ const Footer = () => {
               <span>
                 <CgProfile />
               </span>
-              <input type="text" placeholder="Fullname..." />
+              <input type="text" placeholder="ادخل اسمك كاملاً ..." />
             </div>
             <div className="email">
               <span>
                 <MdAlternateEmail />
               </span>
-              <input type="email" placeholder="Email..." />
+              <input type="email" placeholder="الأميل" />
             </div>
             <div className="message">
               <span className="messageIcon">
                 <FiMail />
               </span>
-              <textarea cols="30" rows="10" placeholder="Message..."></textarea>
+              <textarea
+                cols="30"
+                rows="10"
+                placeholder="اكتب رسالتك هنا"
+              ></textarea>
             </div>
-            <button>Submit</button>
+            <button>ارسال</button>
           </form>
         </Slide>
       </Form>
@@ -144,6 +151,9 @@ const Container = styled.div`
 `;
 const Profile = styled.div`
   flex: 1;
+  @media (max-width: 650px) {
+    text-align: center;
+  }
   .address {
     padding: 1rem 0;
     h1 {
@@ -163,11 +173,20 @@ const Profile = styled.div`
     h1 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+
+      @media (max-width: 650px) {
+        margin-right: auto;
+        margin-left: auto;
+      }
     }
 
     div {
       display: flex;
-      align-items: center;
+
+      @media (max-width: 650px) {
+        align-items: center;
+        text-align: center;
+      }
       gap: 0.5rem;
       a {
         text-decoration: none;
@@ -188,6 +207,11 @@ const Profile = styled.div`
     .icons {
       display: flex;
       align-items: center;
+
+      @media (max-width: 650px) {
+        justify-content: center;
+        margin-bottom: 30px;
+      }
 
       span {
         display: flex;
@@ -224,8 +248,8 @@ const ArrowUp = styled.div`
   margin-top: 2rem;
   @media (max-width: 650px) {
     position: absolute;
-    right: 3rem;
-    top: 16rem;
+    right: 15rem;
+    top: 23rem;
   }
 `;
 const Form = styled.div`
