@@ -1,38 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ChatPotIcon from "./ChatPotIcon";
 import ChatForm from "./ChatForm";
 import ChatMessage from "./ChatMessage";
 
 const ChatWrapper = () => {
   const [chatHistory, setChatHistory] = useState([]);
-  console.log(process.env.REACT_APP_API_KEY);
-  // const generatePotResponse = async (history) => {
-  //   history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
-  //   console.log(process.env.REACT_APP_API_KEY);
+  const [isOpen, setIsOpen] = useState(false);
+  const bodyRef = useRef();
 
-  //   const requestOptions = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ contents: history })
-  //   };
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+  };
 
-  //   try {
-  //     const response = await fetch(process.env.REACT_APP_API_URL, requestOptions);
-  //     const data = await response.json();
-  //     if (!response.ok) {
-  //       throw new Error(data.error.message || "An error occurred");
-  //     }
-  //     console.log(data);
-  //     // Update chat history with the response
-  //     setChatHistory(prev => [...prev, { role: "model", text: data.response }]);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     // Add error message to chat
-  //     setChatHistory(prev => [...prev, { role: "model", text: "Sorry, I encountered an error. Please try again." }]);
-  //   }
-  // };
   const generatePotResponse = async (history) => {  
     // Format history for Gemini API, keeping only the last 3 messages for context
     const recentHistory = history.slice(-3);
@@ -130,34 +109,47 @@ const ChatWrapper = () => {
         text: "Sorry, I encountered an error processing your request. Please try again." 
       }]);
     }  
-  };  
+  }; 
+
+  useEffect(() => {  
+    if (bodyRef.current) {
+      bodyRef.current.scrollTo({ top: bodyRef.current.scrollHeight, behavior: "smooth" });  
+    }
+  }, [chatHistory]);  
+
   return (
-    <div className="container-chat">
-      <div className="chatbot-popup">
-        <div className="chat-header">
-          <div className="headerInfo">
-            <ChatPotIcon className={"SVG"} />
-          </div>
-          <button className="material-symbols-rounded">keyboard_arrow_down</button>
+    <div className="parert">
+  <div className={`container-chat ${isOpen ? 'show' : ''}`}>
+    
+    <div className={`chatbot-popup `}>
+      <div className="chat-header">
+        <div className="headerInfo">
+          <ChatPotIcon className={"SVG"} />
         </div>
-        <div className="chat-body">
-          <div className="message bot-message">
-            <ChatPotIcon className={"svg"} />
-            <p className="message-text">hello</p>
-          </div>
-          {chatHistory.map((chat, index) => (
-            <ChatMessage key={index} chat={chat} />
-          ))}
+        <div className="toggle" onClick={toggleChat}>close AI</div>
+        <button className="material-symbols-rounded" onClick={toggleChat}>keyboard_arrow_down</button>
+      </div>
+      <div ref={bodyRef} className="chat-body">
+        <div className="message bot-message">
+          <ChatPotIcon className={"svg"} />
+          <p className="message-text">hello</p>
         </div>
-        <div className="chat-footer">
-          <ChatForm
-            chatHistory={chatHistory}
-            setChatHistory={setChatHistory}
-            generatePotResponse={generatePotResponse}
-          />
-        </div>
+        {chatHistory.map((chat, index) => (
+          <ChatMessage key={index} chat={chat} />
+        ))}
+      </div>
+      <div className="chat-footer">
+        <ChatForm
+          chatHistory={chatHistory}
+          setChatHistory={setChatHistory}
+          generatePotResponse={generatePotResponse}
+        />
       </div>
     </div>
+  </div>
+    </div>
+
+  
   );
 };
 
