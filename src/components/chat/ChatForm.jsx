@@ -148,7 +148,7 @@ const ChatForm = ({ chatHistory, setChatHistory, generatePotResponse }) => {
       {/* <button className="material-symbols-rounded" type="submit">send</button>   */}
 
       <button type="submit" className="material-symbols-outlined">
-"/"
+        🦋
       </button>
     </form>
   );
